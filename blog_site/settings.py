@@ -15,7 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 t=os.path.join(BASE_DIR,'templates')
-s=os.path.join(BASE_DIR,'static')
+s=os.path.join(BASE_DIR,'blog/static')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
@@ -26,7 +26,7 @@ SECRET_KEY = 'y@im)0+jtg&&53-3i8_8q-9#zzdbl8dc4a78%4k&tgc$*cn&*@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['vigneshpy.pythonanywhere.com']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition

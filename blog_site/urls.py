@@ -21,4 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
     path('blog/',include('blog.urls')),
+    path('<int:pid>',views.details,name="details"),
+   
 ]

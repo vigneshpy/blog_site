@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+	
+<h1 align="center">Add Your Post Here!</h1>
+<br>
+<div class="col-md-6 offset-md-3"> 
+<div class="container-fluid">
+	
+		<div  align="center">
+			{% if error %}
+					<div class="alert alert-warning alert-dismissible fade show  " role="alert">
+				 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				 	{{error}}
+    <span aria-hidden="true">&times;</span>
+  </button>
+			{% endif %}
+         </div>
+		<form action="{% url "create" %}" method="POST">
+			<br>
+				{% csrf_token %}
+			<h3>{{adds.as_p}}</h3>
+			
+	<input type="submit" class="btn btn-success btn-lg" name="sub">
+		</form>
+		</div>
+
+		
+	</div>	
+</div>
+{% endblock content %}

@@ -15,4 +15,6 @@ class Post(models.Model):
 	
 	def __str__(self):
 		return self.title
+	def body(self):
+		return self.text[:100]
 # Create your models here.

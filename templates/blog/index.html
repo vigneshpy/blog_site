@@ -1,32 +1,47 @@
 <!DOCTYPE html>
+
 {% extends "base.html" %}
 
 {% block content %}
-	
-
+{% load staticfiles %}	
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
 <html>
 <head>
 
 	</head>
 
+<div class="bg">
+	&nbsp;	
+<h1 class="id1">Django Blog</h1>
 
+&nbsp;	
+</div>
 
   
 	<div class="container-fluid">
-		<h1>Tech Blog</h1>
+		
+		&nbsp;	
+		<div class="row">
+		<div class="col-md-2">
+			<h2>Latest Post</h2>
+</div>	
+			<a  href="{% url "create" %}"><img src="{% static "images/plus.png" %}" id="pluns" alt="AddPost" width="40px" height="40px"  ></a>
+		
+		
+&nbsp;	
+</div>
 		{% for p in post  %}
 <div class="row">
 	
-				<div  class=" col-3">
-					
-						
-					
-				<h3>{{p.title}}</h3>
-				
-				<p>{{p.text| linebreaksbr}}</p>
-				<p align="right">{{p.created_date}}</p>
-
-
+				<div  class=" col-10">
+					<div class="jumbotron">	
+				<a class="alert-success" href="{% url "details" p.id %}">
+				<h3>{{p.title}}</h3></a>
+			
+				<a class="alert-success" href="{% url "details" p.id %}"><p>{{p.body| linebreaksbr}}</p></a>
+				<a href="{% url "details" p.id%}" class="text-muted">Read More</a>
+				<p align="right">Published on : {{p.pub_date}}</p>
+			</div>
 	
 	</div>
 		
