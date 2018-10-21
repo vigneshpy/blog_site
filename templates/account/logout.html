@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+
+	{% if logout_ %}
+	&nbsp;
+		<div class="alert alert-success alert-dismissable fade show" role="alert">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>
+  <h4 class="alert-heading">Logged Out</h4>
+
+  <p>Aww yeah, See You Later!</p>
+  <hr>
+  <p class="mb-0">Come again!.</p>
+    
+</div>
+			
+		{% endif %}
+
+	
+</div>	
+{% endblock content %}

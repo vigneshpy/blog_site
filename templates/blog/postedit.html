@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+
+{% if form %}
+    <div class="container-fluid">
+    	<h1 align="center">Editing Post</h1>
+<br>    
+    	<form action="{% url "edit" post.id%}" class="form-group" method="POST" align="center">
+    		{% csrf_token %}
+    		<br>
+
+    		{{form.as_p}}
+
+
+		<input type="submit" name="create" class="btn btn-success btn-lg">
+    	</form>
+    		
+    </div>
+
+{% endif %}
+
+{% endblock  %}

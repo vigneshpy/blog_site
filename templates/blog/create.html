@@ -8,21 +8,30 @@
 <div class="container-fluid">
 	
 		<div  align="center">
+
+				
+		
 			{% if error %}
-					<div class="alert alert-warning alert-dismissible fade show  " role="alert">
-				 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-				 	{{error}}
+					<div class="alert alert-success alert-dismissible fade show  " role="alert">{{error}}
+				 <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+				 	
     <span aria-hidden="true">&times;</span>
   </button>
 			{% endif %}
          </div>
+      
+       
+        
 		<form action="{% url "create" %}" method="POST">
 			<br>
 				{% csrf_token %}
-			<h3>{{adds.as_p}}</h3>
-			
-	<input type="submit" class="btn btn-success btn-lg" name="sub">
+			<h3>{{adds.as_p}}</h3><br>
+<input type="submit" class="btn btn-success btn-lg" name="sub" align="centre">
+
 		</form>
+		
+		
+
 		</div>
 
 		

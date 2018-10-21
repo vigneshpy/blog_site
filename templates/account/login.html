@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static "main.css" %}">
+<div class="container">
+
+	<div class="jumbotron">
+		
+		
+		<br>
+		
+<div class="col-md-6 offset-md-3">
+	<h3>Login Here!!</h3>
+	{% if error %}
+		<div class="alert alert-danger alert-dismissible fade show  " role="alert">
+				 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+				<p class="text-muted">{{error}}</p>
+			</div>
+	{% endif %}
+
+	
+<form action="{% url "login" %}" method="POST" class="form-group">
+	{% csrf_token %}
+
+<label for="name">User Name</label><br>
+<input type="text" name="name" class="form-control">
+<label for="p1">Password</label><br>
+<input type="password" name="p1" class="form-control"><br>
+<a href="{% url "signup" %}"><label >New User?</label></a><br>
+<input type="submit" class="btn btn-success" name="btn">
+</form>
+</div>
+</div>
+{% endblock content %}

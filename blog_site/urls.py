@@ -21,6 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index,name='index'),
     path('blog/',include('blog.urls')),
-    path('<int:pid>',views.details,name="details"),
+    path('<int:pid>/details',views.details,name="details"),
+    path('<int:pk>/edit',views.edit,name="edit"),
    
 ]
