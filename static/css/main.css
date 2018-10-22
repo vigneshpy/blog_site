@@ -1,0 +1,29 @@
+body
+ {
+        font-family: 'Mali', cursive;
+        font-size: 20px;
+        background-color: #F0F8FF;
+        text-decoration:none;
+
+      }
+a:hover
+{ text-decoration: none !important; }
+
+
+.bg
+{
+	color:white;
+
+background-color: #FCA205; 	
+}
+
+.id1
+{
+	background-attachment:fixed;
+}
+
+#plus
+{
+	height:5px;
+	width:5px;
+}
