@@ -13,8 +13,11 @@ class Post(models.Model):
 		self.pub_date = timezone.now()
 		self.save()
 	
-	def __str__(self):
-		return self.title
 	def body(self):
 		return self.text[:100]
+	
+	def __str__(self):
+		return self.title
+
+	
 # Create your models here.

@@ -5,6 +5,13 @@
 
 {% block content %}
 	
+<script >
+
+function myfunction() {
+  alert("Please Login/Signup")
+}
+
+</script>
 
 
 <div class="container-fluid">
@@ -15,7 +22,7 @@
 		
 	<a  href="{% url "edit" pk=post.pk%}"><img align="right" src="{% static "images/edit.png" %}" id="pluns" alt="AddPost" width="40px" height="40px"  ></a>
 	{% else %}
-       <a  href=""><img align="right" src="{% static "images/edit.png" %}" id="pluns" alt="AddPost" width="40px" height="40px"  ></a>
+       <a href="" onclick="myfunction()" id="al"><img align="right" src="{% static "images/edit.png" %}" id="pluns" alt="AddPost" width="40px" height="40px"  ></a>
 
 	{% endif %}
    <p align="right">Published on : {{post.pub_date}}</p>
