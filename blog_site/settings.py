@@ -86,7 +86,7 @@ DATABASES = {
 }
 
 
-
+GOOGLE_RECAPTCHA_SECRET_KEY = '6LcdVXgUAAAAANY__P7Aw-Lcfw_t29vHl-g8VgQE'
 
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators

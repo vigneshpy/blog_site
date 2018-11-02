@@ -5,6 +5,10 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
+from django.conf import settings
+import json
+import urllib
+import requests
 
 # Create your views here.
 def index(request):
@@ -34,10 +38,21 @@ def signup(request):
 				user=User.objects.get(username=request.POST['name'])
 				return render(request,'account/signup.html',{'error':'UserName Already Exists'})
 			except User.DoesNotExist:
-				created_user=User.objects.create_user(request.POST['name'],password=request.POST['p1'])
-				auth.login(request,created_user)
-				return  redirect('login')
+				recaptcha_response = request.POST.get('g-recaptcha-response')
+				data = {
+					'secret': settings.GOOGLE_RECAPTCHA_SECRET_KEY,
+					'response': recaptcha_response
+					}
+				r = requests.post('https://www.google.com/recaptcha/api/siteverify', data=data)
+				result = r.json()
+				if result['success']:
+					created_user=User.objects.create_user(request.POST['name'],password=request.POST['p1'])
+					auth.login(request,created_user)
+					return  redirect('login')
+				else:
+					return render(request,'account/signup.html',{'error':'Invalid reCAPTCHA'})
 		else:
+			
 			return render(request,'account/signup.html',{'error':'Password Does Not Match'})
 
 
@@ -63,6 +78,9 @@ def create(request):
 		pe=PostAdd(request.POST)
 		
 		if pe.is_valid():
+			''' Begin reCAPTCHA validation '''
+		
+			''' End reCAPTCHA validation '''
 			post=pe.save(commit=False)
 			print(post)
 			post.author=request.user

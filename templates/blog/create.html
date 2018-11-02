@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-	
+	<script src='https://www.google.com/recaptcha/api.js'></script>
 <h1 align="center">Add Your Post Here!</h1>
 <br>
 <div class="col-md-6 offset-md-3"> 
@@ -26,7 +26,9 @@
 			<br>
 				{% csrf_token %}
 			<h3>{{adds.as_p}}</h3><br>
+			
 <input type="submit" class="btn btn-success btn-lg" name="sub" align="centre">
+
 
 		</form>
 		
